@@ -11,7 +11,7 @@ I am a first-year student exploring robotics and autonomous driving. This reposi
 - **`esp32/`** — ESP32 learning notes (May 2026 onwards)
 - **`cheatsheets/`** — Quick reference for Git, Markdown, and common tools
 - **`projects/`** — Project reflections and lessons learned
-- **`daily-log/`** — Daily learning logs
+- **`JOURNEY/`** — My personal learning journey and adjustment of methods
 
 ## Current Focus
 
