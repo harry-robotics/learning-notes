@@ -15,7 +15,8 @@
 - 问题:OpenCV里默认就是unit8类型数据（0-255），运算时可能会溢出
 - 解决:算之前先转int32,算完再转回unit8
   
-```c img_int = img.astype(np.int32)
+```python 
+img_int = img.astype(np.int32)
 result = img_int + 100         # [300, 320, 340]
 result = np.clip(result, 0, 255)  # 限制在 0-255
 result = result.astype(np.uint8)  # 转回 uint8
