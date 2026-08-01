@@ -57,5 +57,18 @@
 | global minimum | 全局最小值 | 整个损失曲面真正的最低点 |
 | chain rule | 链式法则 | 复合函数求导法则，梯度计算的基础 |
 | feature scaling | 特征缩放 | 把特征归一化，让训练更稳定 |
+|---|---|---|
+| backpropagation | 反向传播 | 用链式法则从损失往回、高效算出所有参数梯度的算法 |
+| chain rule | 链式法则 | 复合函数求导：依赖链上各段局部导数连乘 |
+| computational graph | 计算图 | 把一次计算拆成"操作节点"构成的图 |
+| forward pass | 前向传播 | 从输入算到损失，并存下中间量 |
+| backward pass | 反向传播（过程）| 从损失往输入方向，逐节点求梯度 |
+| local gradient | 本地梯度 | 某节点"输出对输入"的导数，只跟该节点有关 |
+| upstream gradient | 上游梯度 | 从损失一路连乘、传到当前节点的梯度 |
+| sigmoid | sigmoid 函数 | σ(z)=1/(1+e⁻ᶻ)，把实数压到 (0,1) |
+| sigmoid derivative | sigmoid 导数 | σ'(z)=σ(z)(1−σ(z))=a(1−a) |
+| gradient checking | 梯度检验 | 用数值梯度验证反向传播推导是否正确 |
+| numerical gradient / finite difference | 数值梯度 / 有限差分 | (L(w+ε)−L(w−ε))/(2ε) 近似导数 |
+| intermediate value | 中间量 | 前向算出、反向要复用的中间结果（如 z、a）|
 
 
