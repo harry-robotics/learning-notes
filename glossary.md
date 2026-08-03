@@ -70,5 +70,18 @@
 | gradient checking | 梯度检验 | 用数值梯度验证反向传播推导是否正确 |
 | numerical gradient / finite difference | 数值梯度 / 有限差分 | (L(w+ε)−L(w−ε))/(2ε) 近似导数 |
 | intermediate value | 中间量 | 前向算出、反向要复用的中间结果（如 z、a）|
-
+|---|---|---|
+| multilayer perceptron (MLP) | 多层感知机 | 含至少一个隐藏层的前馈神经网络 |
+| hidden layer | 隐藏层 | 输入层和输出层之间的中间层 |
+| activation function | 激活函数 | 给网络引入非线性的函数 |
+| nonlinearity | 非线性 | 让网络能表达弯曲/复杂关系的性质 |
+| ReLU (rectified linear unit) | 修正线性单元 | max(0,z)，现代隐藏层默认激活 |
+| tanh | 双曲正切 | 输出 (−1,1)，零中心的 S 型激活 |
+| dead ReLU | 死亡 ReLU | 神经元恒落负区间、导数恒 0、不再更新 |
+| vanishing gradient | 梯度消失 | 梯度经多层连乘趋近 0，前层学不动 |
+| exploding gradient | 梯度爆炸 | 梯度连乘后变得极大 |
+| matrix multiplication (@) | 矩阵乘法 | X@W，按矩阵乘法规则；区别于逐元素 * |
+| element-wise (*) | 逐元素运算 | 对应位置分别运算 |
+| weight matrix | 权重矩阵 | 一层的权重，形状 (输入维, 输出维) |
+| feedforward | 前馈 | 信息从输入单向流向输出 |
 
