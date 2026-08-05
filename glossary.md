@@ -84,4 +84,31 @@
 | element-wise (*) | 逐元素运算 | 对应位置分别运算 |
 | weight matrix | 权重矩阵 | 一层的权重，形状 (输入维, 输出维) |
 | feedforward | 前馈 | 信息从输入单向流向输出 |
-
+|---|---|---|
+| training loop | 训练循环 | 前向 → 损失 → 反向 → 更新，反复迭代 |
+| from scratch | 从零实现 | 不依赖框架，手写前向和反向传播 |
+| backward pass (MLP) | 反向传播（多层）| 逐层用"上游 × 本地梯度"算出各参数梯度 |
+| ReLU backward | ReLU 反向 | 梯度只在 z>0 处通过，乘 (z>0) 掐断负区间 |
+| transpose (.T) | 转置 | 矩阵行列互换，用于让梯度矩阵形状对上 |
+| axis=0 | 沿样本维 | np.sum 按第 0 维求和（把各样本梯度加总）|
+| keepdims | 保持维度 | 求和后保留原维数，便于后续广播 |
+| batch | 批 | 一次前向/反向所用的一组样本 |
+| Tensor | 张量 | PyTorch 的多维数组，能上 GPU、能自动求导 |
+| autograd | 自动微分 | PyTorch 自动求梯度的机制 |
+| requires_grad | （是否）需要梯度 | 张量属性，`True` 表示追踪其梯度 |
+| computation graph | 计算图 | 记录运算过程的图，反向传播沿它求导 |
+| backward | 反向（传播） | 张量方法 `.backward()`，触发自动求导 |
+| gradient | 梯度 | 求导结果，存在 `.grad` 属性里 |
+| scalar | 标量 | 单个数（0 维张量）；`backward()` 只能对标量调用 |
+| forward pass | 前向传播 | 由输入算出预测/loss 的过程 |
+| epoch | （训练）轮次 | 把全部训练数据过一遍算一个 epoch |
+| learning rate | 学习率 | 每步参数更新的步长，常记作 `lr` |
+| MSE (Mean Squared Error) | 均方误差 | 常用回归损失：误差平方的平均 |
+| in-place operation | 原地操作 | 直接改原张量，PyTorch 里以下划线结尾（如 `zero_()`） |
+| no_grad | 无梯度（上下文） | `torch.no_grad()`，块内运算不建计算图 |
+| detach | 分离 | 把张量从计算图中剥离出来 |
+| device | 设备 | 张量所在位置：CPU 或 GPU，只是「地址标签」 |
+| CPU | 中央处理器 | 核少但强，擅长复杂串行任务 |
+| GPU | 图形处理器 | 核多但弱，擅长海量简单运算并行 |
+| CUDA | —— | NVIDIA 的 GPU 计算平台；`torch.cuda.is_available()` 检测 |
+| broadcasting | 广播 | 不同形状张量做逐元素运算时的自动对齐机制 |
