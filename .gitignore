@@ -13,3 +13,12 @@ desktop.ini
 #备忘录
 cheatsheets/
 .ipynb_checkpoints/
+
+# MNIST 等数据集,不提交
+data/
+*.gz
+*-ubyte
+
+# Python 缓存
+__pycache__/
+*.pyc

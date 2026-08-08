@@ -112,3 +112,31 @@
 | GPU | 图形处理器 | 核多但弱，擅长海量简单运算并行 |
 | CUDA | —— | NVIDIA 的 GPU 计算平台；`torch.cuda.is_available()` 检测 |
 | broadcasting | 广播 | 不同形状张量做逐元素运算时的自动对齐机制 |
+|---|---|---|
+| class | 类 | 造对象的「蓝图」，打包数据和方法 |
+| instance / object | 实例 / 对象 | 照类造出来的具体东西 |
+| self | 自身 | 方法第一个参数，指「当前这个对象」 |
+| __init__ | 构造函数 | 造对象时自动运行，负责初始化 |
+| method | 方法 | 类里定义的函数 |
+| inheritance | 继承 | 子类白拿父类的所有本事 |
+| super() | 父类（引用） | `super().__init__()` 先初始化父类 |
+| nn.Module | —— | PyTorch 所有模型的基类 |
+| forward | 前向（方法） | 定义数据如何流过网络 |
+| nn.Linear | 全连接层 | 线性层，内部自动管好 W 和 b |
+| fully-connected layer | 全连接层 | 每个输入连到每个输出 |
+| ReLU | 修正线性单元 | 激活函数，负数变 0 |
+| logits | 原始分数 | 网络输出的未归一化分数 |
+| softmax | —— | 把分数转成概率分布 |
+| cross-entropy loss | 交叉熵损失 | 分类常用损失；内部含 softmax |
+| optimizer | 优化器 | 打包参数更新与清零（如 SGD） |
+| SGD | 随机梯度下降 | 最基础的优化器 |
+| optimizer.step() | —— | 用梯度更新参数（≈ Day1 手写更新） |
+| optimizer.zero_grad() | —— | 清零所有参数梯度 |
+| Dataset | 数据集 | 数据的容器 |
+| DataLoader | 数据加载器 | 把数据切成 mini-batch 喂入 |
+| mini-batch | 小批量 | 每次喂入的一小批样本 |
+| batch_size | 批大小 | 每批多少个样本 |
+| epoch | 轮次 | 把全部数据过一遍 |
+| MNIST | —— | 手写数字数据集（0~9，28×28） |
+| transform | 变换 | 数据预处理（如 ToTensor） |
+| accuracy | 准确率 | 预测对的比例 |
