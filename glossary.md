@@ -140,3 +140,20 @@
 | MNIST | —— | 手写数字数据集（0~9，28×28） |
 | transform | 变换 | 数据预处理（如 ToTensor） |
 | accuracy | 准确率 | 预测对的比例 |
+|---|---|---|
+| convolution | 卷积 | 小窗口滑过图片、逐位置加权求和的操作 |
+| CNN (Convolutional Neural Network) | 卷积神经网络 | 以卷积为核心的网络，图像任务主力 |
+| kernel / filter | 卷积核 / 滤波器 | 那个小权重窗口；权重是学出来的 |
+| feature map | 特征图 | 一个核扫完整图的输出，某特征的位置分布图 |
+| receptive field | 感受野 | 一个输出值对应输入里多大一块区域 |
+| parameter sharing | 参数共享 | 同一个核用于所有位置，CNN 好处的根源 |
+| translation invariance | 平移不变性 | 图案在哪都能被同一个核检测到 |
+| channel | 通道 | 图像的颜色层：灰度 1、彩色 3 |
+| nn.Conv2d | 二维卷积层 | PyTorch 里建卷积层的类 |
+| in_channels / out_channels | 输入/输出通道数 | 后者＝用几个核＝出几张特征图 |
+| kernel_size | 核大小 | 卷积核的边长，如 3 表示 3×3 |
+| NCHW | —— | 图像张量维度约定：batch, channel, height, width |
+| batch | 批 | 一次喂入的图片张数 |
+| stride | 步幅 | 核每次滑动几格（下一天详讲） |
+| padding | 填充 | 给图片周围补边，防止缩小（下一天详讲） |
+| nn.Parameter | 可学习参数 | 把张量注册成网络的可训练权重 |
