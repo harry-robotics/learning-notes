@@ -170,3 +170,44 @@
 | feature extractor | 特征提取器 | CNN 前半段（卷积+池化部分） |
 | classifier head | 分类头 | CNN 后半段（展平+全连接部分） |
 | flatten | 展平 | 把多维特征图拉成一维，交给全连接层 |
+|---|---|---|
+| Logits | 原始分数 / 对数几率 | 网络最后一层的无约束输出，softmax 的输入 |
+| Softmax | 归一化指数函数 | 不译；两步：取 exp、除以总和 |
+| Hard-max / Argmax | 硬最大 | 不可导，无法 backward，故不能训练 |
+| Shift Invariance | 平移不变性 | logits 加常数输出不变，PyTorch 用它防 exp 溢出 |
+| One-hot | 独热 | 只有一个分量为 1 的向量 |
+| Saturation | 饱和 | softmax 接近 one-hot 时梯度趋近 0 |
+| Attention | 注意力 | 一次可导的「软检索」 |
+| Self-Attention | 自注意力 | Q、K、V 均来自同一输入序列 |
+| Query / Key / Value | 查询 / 键 / 值 | 论文与代码中一律用 Q/K/V，不译 |
+| Scaled Dot-Product Attention | 缩放点积注意力 | "Scaled" 指除以 √d_k |
+| Attention Score | 注意力分数 | softmax 之前的原始相似度 |
+| Attention Weights | 注意力权重 | softmax 之后的 (seq_q, seq_k) 矩阵，每行和为 1 |
+| Soft Retrieval | 软检索 | 与硬检索（argmax，不可导）对立 |
+| Causal Mask | 因果掩码 | 下三角，禁止看未来位置 |
+| Padding Mask | 填充掩码 | 屏蔽 batch 内为对齐而填充的位置 |
+| Inductive Bias | 归纳偏置 | 模型结构自带的先验假设 |
+| Locality | 局部性 | CNN 的核心假设之一 |
+| Translation Invariance | 平移不变性（卷积） | 参数共享带来的性质，与 softmax 的 shift invariance 不同概念 |
+| Receptive Field | 感受野 | 输出单元能「看到」的输入范围 |
+| Long-Range Dependency | 长距离依赖 | RNN/CNN 的短板，attention 的主场 |
+| Permutation Equivariance | 置换等变性 | self-attention 的固有性质，引出位置编码 |
+| Normalization | 归一化 | 统称 |
+| Batch Normalization (BatchNorm) | 批归一化 | 跨样本、同通道；nn.BatchNorm2d |
+| Layer Normalization (LayerNorm) | 层归一化 | 单样本、跨特征；Transformer 采用 |
+| Running Statistics | 滑动统计量 | BatchNorm 推理时使用，train/eval 行为不同的根源 |
+| Learnable Parameter | 可学习参数 | 如 γ、β，会进 model.parameters() |
+| Residual Connection | 残差连接 | y = F(x) + x |
+| Skip Connection | 跳跃连接 | 与残差连接常混用 |
+| Identity Mapping | 恒等映射 | F(x) ≈ 0 时残差块退化成的形式 |
+| Vanishing Gradient | 梯度消失 | 深层网络的核心优化障碍 |
+| Jacobian Matrix | 雅可比矩阵 | 向量对向量的导数；今天只用其形状概念 |
+| Broadcasting | 广播 | 张量维度自动扩展规则 |
+| In-place Operation | 原地操作 | PyTorch 中带下划线后缀的方法，如 masked_fill_ |
+| Random Seed | 随机种子 | 实验可复现性的前提 |
+| Invariant Check | 不变量检查 | 如「权重每行和为 1」，研究代码的自检手段 |
+| Skeleton Reconstruction | 骨架重建 | 允许查 API，但结构要自己想出来 |
+| Attention Pattern | 注意力模式 | 权重矩阵的可视化，3b1b 用的说法 |
+| Information Leakage | 信息泄露 | 模型看到了本不该看到的答案；复现类工作最常见的隐藏 bug |
+| Teacher Forcing | 教师强制 | 训练时用真实前文而非模型自己的输出，与 causal mask 配套 |
+| Autoregressive | 自回归 | 逐个生成、每步都依赖已生成内容的模型（如 GPT） |
