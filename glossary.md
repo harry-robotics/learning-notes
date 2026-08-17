@@ -211,3 +211,27 @@
 | Information Leakage | 信息泄露 | 模型看到了本不该看到的答案；复现类工作最常见的隐藏 bug |
 | Teacher Forcing | 教师强制 | 训练时用真实前文而非模型自己的输出，与 causal mask 配套 |
 | Autoregressive | 自回归 | 逐个生成、每步都依赖已生成内容的模型（如 GPT） |
+|---|---|---|
+| Multi-Head Attention (MHA) | 多头注意力 | 并行多组 QKV，各自捕捉一种关系 |
+| Head | 头 | 一组独立的 W^Q/W^K/W^V |
+| num_heads / h | 头数 | 原论文取 8 |
+| d_model | 模型维度 | Transformer 主干特征维，原论文 512 |
+| d_k | 每个头的维度 | d_model / num_heads，8 头时为 64 |
+| Output Projection (W^O) | 输出投影 | 把各头结果融合，多头之后的必要一步 |
+| Concat | 拼接 | 把各头输出首尾相接还原成 d_model |
+| Split Heads | 切分头 | (batch, seq, d_model) → (batch, h, seq, d_k) |
+| Combine Heads | 合并头 | 上一步的逆操作 |
+| view | 视图重塑 | 改形状不复制数据，要求内存连续 |
+| reshape | 重塑 | 类似 view，必要时自动复制；调试期更推荐 view |
+| contiguous | 连续化 | 真正复制数据使内存顺序与逻辑顺序对齐 |
+| Stride | 步长 | 张量在内存中各维度的读取跨度 |
+| Memory Layout | 内存布局 | transpose 只改读法不搬数据的原因 |
+| Floor Division | 整除 | Python 的 //，结果为整数 |
+| Assertion | 断言 | assert，参数进入计算前的合法性检查 |
+| Unpacking | 解包赋值 | a, b, _ = x.size() |
+| Self-Attention | 自注意力 | mha(x, x, x) |
+| Cross-Attention | 交叉注意力 | mha(语言, 图像, 图像)，VLA 的核心机制 |
+| Attention Pattern | 注意力模式 | 权重矩阵的可视化 |
+| Information Leakage | 信息泄露 | 模型看到不该看的答案 |
+| Autoregressive | 自回归 | 逐个生成、每步依赖已生成内容 |
+| Teacher Forcing | 教师强制 | 训练时用真实前文，与 causal mask 配套 |
