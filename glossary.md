@@ -235,3 +235,31 @@
 | Information Leakage | 信息泄露 | 模型看到不该看的答案 |
 | Autoregressive | 自回归 | 逐个生成、每步依赖已生成内容 |
 | Teacher Forcing | 教师强制 | 训练时用真实前文，与 causal mask 配套 |
+|---|---|---|
+| Positional Encoding (PE) | 位置编码 | 从外部注入顺序信息 |
+| Sinusoidal Positional Encoding | 正弦位置编码 | 原论文方案，用不同频率的 sin/cos |
+| Learned Positional Embedding | 可学习位置嵌入 | BERT/GPT/ViT 采用，缺点是无法外推 |
+| Absolute Position | 绝对位置 | 第几个 token |
+| Relative Position | 相对位置 | 相距几个 token；正弦编码使其易被线性表达 |
+| Extrapolation | 外推 | 处理训练时未见过的更长序列 |
+| Wavelength | 波长 | 振荡周期；决定该维度变化快慢 |
+| Frequency | 频率 | 与波长互为倒数 |
+| nn.Embedding | 嵌入层 | 本质是可学习的查找表 |
+| register_buffer | 注册缓冲区 | 非可学习但随模型走（to(device)/state_dict） |
+| nn.Parameter | 可学习参数 | 会被 optimizer 更新 |
+| Numerical Stability | 数值稳定性 | exp-log 改写幂运算的动机 |
+| Slice Step | 切片步长 | Python 的 `0::2` / `1::2` |
+| Feed-Forward Network (FFN) | 前馈网络 | 逐位置独立的升维-非线性-降维 |
+| Position-wise | 逐位置 | 同一套权重独立作用于每个位置 |
+| d_ff | 前馈中间维度 | 通常为 4 × d_model |
+| ReLU | 修正线性单元 | max(0, x) |
+| Sublayer | 子层 | Block 内的 attention 或 FFN |
+| Transformer Block | Transformer 块 | 可堆叠的标准单元 |
+| Pre-LN | 前置层归一化 | x + Sublayer(LN(x))，现代主流，训练稳定 |
+| Post-LN | 后置层归一化 | LN(x + Sublayer(x))，原论文写法，需 warmup |
+| Warmup | 学习率预热 | Post-LN 训练所需 |
+| Residual Stream | 残差流 | 贯穿所有层的那条主干通路 |
+| nn.ModuleList | 模块列表 | 装 Module 的列表；用普通 list 会导致参数不注册 |
+| Dropout | 随机失活 | 训练时随机置零防过拟合；非核心，Day 5 用 |
+| Shape-Preserving | 形状保持 | 输入输出同形，堆叠 N 层的前提 |
+| Permutation Equivariance | 置换等变性 | 位置编码要打破的性质 |
