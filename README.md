@@ -9,7 +9,9 @@ Vehicle Engineering undergraduate, Wuhan University of Technology.
 ## What I can do now
 
 - **Transformer from scratch** — attention → multi-head → full block → positional encoding, implemented and verified. Trained a character-level GPT to confirm the pipeline actually learns.
-- **Simulation environment** — MuJoCo + LIBERO configured on WSL2, with environment creation and off-screen rendering verified end to end.
+- - **Simulation environment** — MuJoCo + LIBERO configured on WSL2 (RTX 5060, Blackwell). 
+  Rendering verified: 128×128 dual-camera output, 25,436 non-zero pixels, full object 
+  poses recovered.
 - **CNN image classification** — MNIST → CIFAR-10 transfer, with analysis of where the bottleneck comes from.
 - **Reproduction debugging** — invariant checks, initial-loss validation, dependency version conflict diagnosis.
 
