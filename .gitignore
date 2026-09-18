@@ -1,24 +1,38 @@
 # 私人复习材料,不公开
+
 summary/
 
-# VSCode 配置(避免污染仓库)
+# VSCode 配置
 .vscode/
 
 # Windows 系统文件
+
 Thumbs.db
 desktop.ini
 
-# macOS 系统文件(以防万一)
+# macOS 系统文件
+
 .DS_Store
-#备忘录
+
+# Obsidian 配置
+
+.obsidian/
+
+# 备忘录
+
 cheatsheets/
+
+# Jupyter 临时文件
+
 .ipynb_checkpoints/
 
-# MNIST 等数据集,不提交
+# Python 缓存
+
+__pycache__/
+*.pyc
+
+# 数据集
+
 data/
 *.gz
 *-ubyte
-
-# Python 缓存
-__pycache__/
-*.pyc
