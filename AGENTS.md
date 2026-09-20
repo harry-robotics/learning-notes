@@ -1,83 +1,51 @@
 # AGENTS.md
 
-## Repository Overview
+# Repository Overview
 
-This repository is a learning-oriented knowledge archive.
+This repository is a public learning archive.
 
-The purpose of this repository is to record:
+Purpose:
 
-- learning notes
-- technical understanding
-- experiments
-- small projects
-- problem-solving processes
+- record learning notes
+- document technical understanding
+- preserve experiments and projects
+- track problem-solving processes
 
-This repository values the learning process, reproducibility, and understanding over simply producing final results.
+The priority is understanding and reproducibility rather than only final results.
 
-AI assistants are used as collaboration tools. They should help improve understanding and productivity while preserving human ownership of decisions and conclusions.
+AI assistants are collaboration tools.
+Human ownership of decisions and conclusions must be preserved.
 
----
 
-# AI Collaboration Principles
+# AI Collaboration Rules
 
-## 1. Assist understanding, not just execution
+## Understanding Before Execution
 
-AI-generated explanations, code, and suggestions must be reviewed and understood before being accepted.
+When adding explanations, code, or technical content:
 
-The goal is not only to make something work, but to understand:
+- explain core ideas first
+- clarify assumptions
+- describe important design choices
+- avoid black-box solutions
 
-- why it works
-- how it works
-- what assumptions it relies on
-- what limitations it has
+Generated content should be reviewed and understood before acceptance.
 
-A solution that cannot be explained is not considered a successful learning outcome.
 
----
+## Preserve Learning History
 
-## 2. Prefer explanation before implementation
+Do not rewrite previous work only to make it appear more polished.
 
-When introducing code, algorithms, or technical concepts:
-
-- explain the core idea first
-- describe the data flow
-- clarify inputs and outputs
-- explain important design choices
-- avoid unnecessary complexity
-
-For educational purposes, readability and understanding are more important than maximum optimization.
-
----
-
-## 3. Preserve the learning process
-
-This repository records learning progress.
-
-Do not rewrite history only to make documents appear more professional.
-
-Preserve valuable information including:
+Preserve valuable information:
 
 - failed attempts
 - debugging experiences
 - changes in understanding
 - reasons behind decisions
 
-A clear learning trajectory is more valuable than a perfect-looking final document.
 
----
+## Accuracy
 
-# Learning Philosophy
-
-When assisting with this repository:
-
-- prioritize understanding over speed
-- explain unfamiliar concepts before applying them
-- avoid hiding complexity behind tools or libraries
-- encourage the ability to independently verify results
-
-For technical exploration:
-
-distinguish clearly between:
+Clearly distinguish:
 
 - known facts
 - personal understanding
@@ -87,13 +55,10 @@ distinguish clearly between:
 
 Do not present assumptions as verified results.
 
----
 
 # Documentation Guidelines
 
-## Notes
-
-Learning notes should focus on:
+Notes should focus on:
 
 - clear explanations
 - important concepts
@@ -101,160 +66,121 @@ Learning notes should focus on:
 - practical examples
 - connections between ideas
 
-Avoid copying information without understanding its context.
+When using external information:
 
-When recording external information:
-
-- identify sources when appropriate
+- preserve references when appropriate
 - separate source information from personal interpretation
-- avoid unsupported claims
 
----
 
-## Technical Explanations
-
-When explaining technical content:
+# Technical Explanation Style
 
 Prefer:
 
 - step-by-step reasoning
 - concrete examples
-- diagrams or structured descriptions when useful
 - explanation of important terms
+- clear input/output relationships
 
 Avoid:
 
 - unexplained jargon
+- unnecessary abstraction
 - black-box descriptions
-- excessive abstraction
 
----
 
 # Code Guidelines
 
-Code in this repository should:
+Code should:
 
 - have a clear learning purpose
-- be understandable by the author
+- be understandable
 - include necessary comments
-- avoid unnecessary abstraction
+- avoid unnecessary complexity
 
-Before adding complex code, consider whether a simpler implementation better supports learning.
+For important implementations, explain:
 
-For code explanations:
+- components
+- variables
+- inputs and outputs
+- important data structures
 
-describe:
 
-- what each component does
-- important variables
-- input/output relationships
-- data structures or tensor shapes when relevant
+# Experiments
 
----
-
-# Experiments and Results
-
-For experiments or technical tests, record information when possible:
+Record experiments when possible:
 
 - objective
 - hypothesis
 - environment
-- dependencies
 - configuration
-- input data
-- expected result
-- actual result
+- results
 - limitations
 
-Experimental observations should be separated from conclusions.
+Separate observations from conclusions.
 
-Do not claim improvements without supporting evidence.
+Do not claim improvements without evidence.
 
----
-
-# Research and External Information
-
-When discussing research papers, technologies, or external knowledge:
-
-- distinguish reported results from personal analysis
-- avoid unsupported speculation
-- record important assumptions
-- preserve references when possible
-
-If information is uncertain:
-
-state the uncertainty instead of filling gaps with guesses.
-
----
 
 # Repository Organization
 
-Keep the repository structure clean.
+Keep the repository clean.
 
 Avoid committing:
 
 - temporary files
-- generated caches
+- caches
 - system files
 - private configuration
 - large datasets
-- unnecessary build artifacts
+- unnecessary artifacts
 
-Recommended organization:
-
-```
-repository/
-├── notes/
-├── code/
-├── data/
-├── docs/
-├── logs/
-└── README.md
-```
-
----
 
 # Git Practices
 
 Before committing:
 
-check that:
-
-- changes have a clear purpose
-- unnecessary files are excluded
-- documentation matches the current state
+- check git status
+- exclude unnecessary files
+- ensure documentation matches current state
 
 Commit messages should describe meaningful changes.
 
-Avoid committing unfinished temporary experiments unless they provide learning value.
 
----
+# Language Convention
 
-# Communication Style
+This repository is public documentation.
 
-When assisting with this repository:
+Use English technical terms with clear explanations.
+
+Prioritize:
+
+- readability
+- reproducibility
+- learning process
+
+Do not include:
+
+- unpublished research ideas
+- private discussions
+- confidential information
+
+Private research materials belong to the Research workspace.
+
+## Documentation Style
+
+Notes should balance readability and information density.
 
 Prefer:
 
-- direct feedback
-- identifying problems clearly
-- explaining trade-offs
-- suggesting improvements
+- clear hierarchy
+- concise explanations
+- tables, lists, or diagrams when they improve understanding
 
-Do not optimize for agreement.
+Avoid:
 
-Correctness, understanding, and long-term learning are more important than confirmation.
+- unnecessary repetition
+- excessive formatting
+- visual length without additional information
 
----
-
-# Quality Standard
-
-A successful contribution should allow the author to:
-
-1. explain the main ideas,
-2. understand the implementation,
-3. reproduce the result,
-4. identify limitations,
-5. continue improving independently.
-
-The purpose of this repository is not only to store answers, but to build the ability to discover, understand, and create knowledge.
+Structure should serve understanding rather than decoration.
+Prefer portable Markdown formats. Use horizontal flows (A → B → C), tables, and lists instead of vertical arrow diagrams that may break across platforms.
