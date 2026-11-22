@@ -1,74 +1,17 @@
 # Learning Notes
 
-Self-directed learning toward research in **embodied AI**, specifically **Vision-Language-Action (VLA) policy learning**, with autonomous driving as the entry point into embodiment.
+I'm Harry Huang, an Automotive Engineering undergraduate at Wuhan University of Technology. These are notes and exercises from learning embedded systems, computer vision and deep learning. Most of the notes are in Chinese.
 
-Vehicle Engineering undergraduate, Wuhan University of Technology.
+My current research is in 3D scene understanding, with a focus on dynamic scene graphs: how to represent objects and their changing relationships. Longer term, I'm interested in reliable robot manipulation, sim-to-real transfer and what real-world failures can teach us about perception, planning and control.
 
----
+## A few places to start
 
-## What I can do now
+- **ESP32.** [Interrupts and PWM](esp32/day-02-pullup-interrupts-pwm.md) records how I read a button press and varied an LED's brightness. My earlier [Arduino car](https://github.com/harry-robotics/arduino-smart-car) has its own repository with a wiring photo and notes on hardware tests.
+- **CNNs in PyTorch.** In the [CIFAR-10 exercise](projects/cifar10-cnn/README.md), I adapted a LeNet-style network for color images. The [training script](projects/cifar10-cnn/train.py) shows where the input channels change and how the feature maps flatten before the first fully connected layer.
+- **Transformers in PyTorch.** The [encoder exercise](phase2.5-transformer/transformer.py) includes small checks I can use to understand attention, such as whether each row of attention weights sums to one and which positions a causal mask hides.
 
-- **Transformer from scratch** — attention → multi-head → full block → positional encoding, implemented and verified. Trained a character-level GPT to confirm the pipeline actually learns.
-- - **Simulation environment** — MuJoCo + LIBERO configured on WSL2 (RTX 5060, Blackwell). 
-  Rendering verified: 128×128 dual-camera output, 25,436 non-zero pixels, full object 
-  poses recovered.
-- **CNN image classification** — MNIST → CIFAR-10 transfer, with analysis of where the bottleneck comes from.
-- **Reproduction debugging** — invariant checks, initial-loss validation, dependency version conflict diagnosis.
+## Earlier notes
 
-**Currently working toward**: reproducing Diffusion Policy / ACT on LIBERO.
+My [NumPy and OpenCV notes](m2-vision/), [neural network foundations](phase1-foundation/) and [simulation setup notes](env/setup-notes.md) are here as well. The [embodied AI reading notes](phase3-embodied-ai/survey-notes/) include an early look at VLA models. [Learning Journey](JOURNEY.md) is my dated record of how my interests and study habits have changed.
 
----
-
-## Contents
-
-| Directory | Description |
-|---|---|
-| **[phase2.5-transformer](./phase2.5-transformer)** | Transformer implementation, mini-GPT training, ViT structure |
-| **[env](./env)** | Simulation setup and troubleshooting notes (MuJoCo / LIBERO / robosuite) |
-| **[projects](./projects)** | Standalone projects: CIFAR-10 classifier, lane detection, feature matching |
-| [phase2-CNN-pytorch](./phase2-CNN-pytorch) | PyTorch fundamentals and CNNs |
-| [phase1](./phase1) | Classical computer vision |
-| [m2-vision](./m2-vision) | OpenCV image processing |
-| [esp32](./esp32) | Embedded development (smart car) |
-
-Notes are written in Chinese; code and documentation structure in English.
-
----
-
-## Three things worth a look
-
-**1. [`phase2.5-transformer/transformer-essentials.md`](./phase2.5-transformer/transformer-essentials.md)**
-
-A distilled summary written after implementing Transformer. The organizing idea: a Transformer is a **residual stream running through the whole network** — attention moves information horizontally across positions, the FFN refines it vertically within each position, alternating for N layers. This single picture explains why the shape must be preserved, why residual connections exist, and why the architecture stacks to 96 layers.
-
-The last section identifies the three interfaces that architecture papers actually modify — **where Q comes from, how the mask is designed, and how inputs are concatenated** — which I use to locate a paper's contribution quickly.
-
-**2. [`env/setup-notes.md`](./env/setup-notes.md)**
-
-Complete troubleshooting record for the LIBERO setup. One generalizable rule came out of it: **when the last frame of a traceback lands inside a third-party library and is an assertion failure, it is almost always a dependency version mismatch rather than incorrect API usage.** In this case, robosuite 1.4.0 could not parse MuJoCo 3.x models and had to be downgraded to 2.3.7.
-
-**3. [`projects/cifar10-cnn`](./projects/cifar10-cnn)**
-
-LeNet transferred from MNIST to CIFAR-10, reaching 52.92% test accuracy. The number is low, and the point of the writeup is why: LeNet is a 1998 architecture missing batch normalization and residual connections. The analysis is in the project README.
-
----
-
-## How I work
-
-- **Output over input.** Each phase must produce runnable code and verifiable results. Finishing a course does not count as finishing a phase.
-- **Record failures.** Troubleshooting notes are kept alongside working code — the environment setup document alone will save days when I move to a lab machine.
-- **Separate what to internalize from what to look up.** Explicitly categorizing knowledge as *must internalize / look up when needed / safe to forget* keeps attention on what matters.
-
-More in [`JOURNEY.md`](./JOURNEY.md).
-
----
-
-## Next
-
-- [ ] Reproduce Diffusion Policy / ACT on LIBERO to baseline level. Note that LIBERO is largely saturated (>95% is standard on Spatial/Goal/Object), so this is a **learning milestone, not a research result**.
-- [ ] Analyze failure modes of the reproduction to find a problem worth pursuing.
-- [ ] Track VLA research: efficiency, data quality quantification, evaluation methodology.
-
----
-
-**Contact**: harry.huang.eng@outlook.com
+I use AI for explanations, examples and coding help. In my notes I try to record enough of a check or a mistake that I can revisit it and explain the result myself.
