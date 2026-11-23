@@ -2,6 +2,13 @@
 
 I'm Harry Huang, an Automotive Engineering undergraduate at Wuhan University of Technology. These are notes and exercises from learning embedded systems, computer vision and deep learning. Most of the notes are in Chinese.
 
+> [!NOTE]
+> **Repository status**
+>
+> Since starting research, I’ve updated this repository less often. It now mainly serves as an archive of my learning notes and practice projects. My research code, experiment records and related materials are kept in my private Research workspace.
+
+**Learning Journey** · [English](JOURNEY.en.md) · [中文](JOURNEY.md)
+
 My current research is in 3D scene understanding, with a focus on dynamic scene graphs: how to represent objects and their changing relationships. Longer term, I'm interested in reliable robot manipulation, sim-to-real transfer and what real-world failures can teach us about perception, planning and control.
 
 ## A few places to start
@@ -12,6 +19,6 @@ My current research is in 3D scene understanding, with a focus on dynamic scene 
 
 ## Earlier notes
 
-My [NumPy and OpenCV notes](m2-vision/), [neural network foundations](phase1-foundation/) and [simulation setup notes](env/setup-notes.md) are here as well. The [embodied AI reading notes](phase3-embodied-ai/survey-notes/) include an early look at VLA models. [Learning Journey](JOURNEY.md) is my dated record of how my interests and study habits have changed.
+My [NumPy and OpenCV notes](m2-vision/), [neural network foundations](phase1-foundation/) and [simulation setup notes](env/setup-notes.md) are here as well. The [embodied AI reading notes](phase3-embodied-ai/survey-notes/) include an early look at VLA models.
 
 I use AI for explanations, examples and coding help. In my notes I try to record enough of a check or a mistake that I can revisit it and explain the result myself.
